@@ -1,0 +1,52 @@
+# ================================
+#   OasisPSMenu - Configuración
+# ================================
+
+# Título de los menús (acepta códigos de color con &)
+menu-titles:
+  home: "&2&lMis Protecciones"
+  manage: "&2&lGestionar Protección"
+  members: "&2&lMiembros y Dueños"
+
+# Tamaño del menú de "homes" (filas de 9, máximo 6 filas = 54 slots)
+home-menu-rows: 6
+
+# -------------------------------------------------------------
+#  Menú principal (igual que el PSMenu original): si está
+#  activado, escribir "/ps" SOLO (sin subcomando) abre el menú
+#  de Home directamente, en vez de mostrar la ayuda de
+#  ProtectionStones.
+# -------------------------------------------------------------
+inventories:
+  main-menu:
+    enabled: true
+    cancel-original-command: true
+
+# Grupos disponibles para ciclar en el menú de Flags con click
+# izquierdo (en el mismo orden en que se van a ciclar).
+default-flag-groups:
+  - ALL
+  - MEMBERS
+  - OWNERS
+  - NON_MEMBERS
+  - NON_OWNERS
+
+# Nombres a mostrar de cada grupo (para el placeholder <group> del lore)
+group-display-names:
+  ALL: "&fTodos"
+  MEMBERS: "&aMiembros"
+  OWNERS: "&6Dueños"
+  NON_MEMBERS: "&cNo-miembros"
+  NON_OWNERS: "&cNo-dueños"
+
+# Cuando un jugador es banneado de una protección, se le teletransporta
+# a esta lista de coordenadas (mundo, x, y, z) en lugar del spawn global.
+# Dejalo vacío para usar el spawn del mundo.
+ban-teleport:
+  world: ""
+  x: 0
+  y: 0
+  z: 0
+
+# Archivo donde se guardan los bans/datos del plugin (no tocar)
+data-file: "data.yml"

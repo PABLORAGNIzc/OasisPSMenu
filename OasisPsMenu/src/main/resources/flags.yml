@@ -1,0 +1,254 @@
+# ================================================================
+#  OasisPSMenu - flags.yml
+#  Lista de flags mostrados en el "Editor de Flags".
+#
+#  Catálogo confirmado el 27/08 mirando el video de Pablo frame a
+#  frame: material, nombre, descripción y ORDEN exactos, tal cual
+#  aparecen en las 2 páginas del menú real. Originalmente eran 46 —
+#  el 28/08 se sacaron 4 (greeting-title, greeting-action,
+#  farewell-title, farewell-action), quedan 42.
+#
+#  Los primeros 28 flags (icon-slots de abajo) van en la página 1.
+#  Los siguientes 14 van en la página 2 (quedan slots vacíos al final
+#  de esa página porque son menos de 28 — es normal).
+# ================================================================
+
+# Slots donde se colocan los íconos (28 por página; orden = orden de la lista "flags")
+icon-slots: "10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43"
+
+# Slot del botón "Regresar" (flecha) - confirmado en el video real
+back-button-slot: 48
+
+# Slot del ícono informativo de página (libro) - confirmado en el video real
+page-info-slot: 49
+
+# Slot del botón "Página siguiente / anterior" (flecha) - pedido por Pablo (27/08)
+page-nav-slot: 50
+
+# Tamaño del menú (9-54, múltiplo de 9)
+menu-size: 54
+
+# Slots de relleno (BLACK_STAINED_GLASS_PANE) - lista exacta que pasó Pablo
+filler-slots: "0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,51,52,53"
+
+flags:
+
+  # ── Fila 1, página 1 ────────────────────────────────────────────
+  pvp:
+    material: NETHERITE_SWORD
+    display_name: "PvP"
+    description: "Si el PvP está permitido"
+
+  greeting:
+    material: BOOK
+    display_name: "Mensaje de Bienvenida"
+    description: "Mensaje de bienvenida al entrar a la región"
+    text_flag: true
+
+  farewell:
+    material: BOOK
+    display_name: "Mensaje de Despedida"
+    description: "Mensaje de despedida al salir de la región"
+    text_flag: true
+
+  mob-spawning:
+    material: SPAWNER
+    display_name: "Aparición de Mobs"
+    description: "Si los mobs pueden aparecer"
+
+  creeper-explosion:
+    material: CREEPER_HEAD
+    display_name: "Explosión de Creepers"
+    description: "Si las explosiones de creepers causan daño"
+
+  entry:
+    material: OAK_DOOR
+    display_name: "Entrada"
+    description: "Si los jugadores pueden entrar a la región"
+
+  block-trampling:
+    material: FARMLAND
+    display_name: "Pisoteo de Cultivos"
+    description: "Si los cultivos pueden ser pisoteados"
+
+  # ── Fila 2, página 1 ────────────────────────────────────────────
+  chest-access:
+    material: CHEST
+    display_name: "Acceso a Cofres"
+    description: "Si se puede acceder a cofres"
+
+  chorus-fruit-teleport:
+    material: CHORUS_FRUIT
+    display_name: "Frutas del Coro"
+    description: "Si las frutas del coro pueden usarse para teletransportarse"
+
+  coral-fade:
+    material: BRAIN_CORAL
+    display_name: "Desvanecimiento de Coral"
+    description: "Si el coral se desvanece fuera del agua"
+
+  enderpearl:
+    material: ENDER_PEARL
+    display_name: "Perla de Ender"
+    description: "Si las perlas de ender pueden usarse"
+
+  entity-item-frame-destroy:
+    material: ITEM_FRAME
+    display_name: "Destrucción de Marcos"
+    description: "Si las entidades pueden destruir marcos de objetos"
+
+  fire-spread:
+    material: FIRE_CHARGE
+    display_name: "Propagación de Fuego"
+    description: "Si el fuego puede extenderse"
+
+  frosted-ice-form:
+    material: ICE
+    display_name: "Formación de Hielo (Botas)"
+    description: "Si se forma hielo escarchado con botas de caminata helada"
+
+  # ── Fila 3, página 1 ────────────────────────────────────────────
+  ghast-fireball:
+    material: FIRE_CHARGE
+    display_name: "Bola de Fuego de Ghast"
+    description: "Si las bolas de fuego de ghasts causan daño"
+
+  grass-growth:
+    material: GRASS_BLOCK
+    display_name: "Crecimiento de Pasto"
+    description: "Si la hierba puede crecer"
+
+  ice-form:
+    material: ICE
+    display_name: "Formación de Hielo"
+    description: "Si se forma hielo"
+
+  ice-melt:
+    material: ICE
+    display_name: "Derretimiento de Hielo"
+    description: "Si el hielo se derrite"
+
+  interact:
+    material: LEVER
+    display_name: "Interacción General"
+    description: "Si se puede interactuar con bloques"
+
+  leaf-decay:
+    material: OAK_LEAVES
+    display_name: "Caída de Hojas"
+    description: "Si las hojas se caerán cuando no estén conectadas"
+
+  lightning:
+    material: LIGHTNING_ROD
+    display_name: "Rayos"
+    description: "Si los rayos pueden caer"
+
+  # ── Fila 4, página 1 ────────────────────────────────────────────
+  mob-damage:
+    material: ZOMBIE_HEAD
+    display_name: "Daño de Mobs"
+    description: "Si los mobs pueden dañar a los jugadores"
+
+  pistons:
+    material: PISTON
+    display_name: "Pistones"
+    description: "Si los pistones pueden funcionar"
+
+  sculk-growth:
+    material: SCULK
+    display_name: "Crecimiento de Sculk"
+    description: "Si el sculk puede crecer"
+
+  snowman-trails:
+    material: SNOWBALL
+    display_name: "Rastros de Golem de Nieve"
+    description: "Si los golems de nieve dejan rastros de nieve"
+
+  tnt:
+    material: TNT
+    display_name: "TNT"
+    description: "Si el TNT puede explotar"
+
+  use:
+    material: LEVER
+    display_name: "Uso de Bloques"
+    description: "Si se pueden usar bloques"
+
+  use-anvil:
+    material: ANVIL
+    display_name: "Uso de Yunques"
+    description: "Si se pueden usar yunques"
+
+  # ── Fila 1, página 2 ────────────────────────────────────────────
+  use-dripleaf:
+    material: BIG_DRIPLEAF
+    display_name: "Uso de Hojas Goteantes"
+    description: "Si se pueden usar hojas goteantes"
+
+  wither-damage:
+    material: WITHER_SKELETON_SKULL
+    display_name: "Daño de Wither"
+    description: "Si los withers pueden causar daño"
+
+  block-break:
+    material: DIAMOND_PICKAXE
+    display_name: "Romper Bloques"
+    description: "Si se pueden romper bloques"
+
+  block-place:
+    material: GRASS_BLOCK
+    display_name: "Colocar Bloques"
+    description: "Si se pueden colocar bloques"
+
+  water-flow:
+    material: WATER_BUCKET
+    display_name: "Flujo de Agua"
+    description: "Si el agua puede fluir"
+
+  lava-flow:
+    material: LAVA_BUCKET
+    display_name: "Flujo de Lava"
+    description: "Si la lava puede fluir"
+
+  crop-growth:
+    material: WHEAT
+    display_name: "Crecimiento de Cultivos"
+    description: "Si los cultivos pueden crecer"
+
+  # ── Fila 2, página 2 ────────────────────────────────────────────
+  vine-growth:
+    material: VINE
+    display_name: "Crecimiento de Enredaderas"
+    description: "Si las enredaderas pueden crecer"
+
+  mushroom-growth:
+    material: RED_MUSHROOM
+    display_name: "Crecimiento de Hongos"
+    description: "Si los hongos pueden crecer"
+
+  mycelium-spread:
+    material: MYCELIUM
+    display_name: "Extensión de Micelio"
+    description: "Si el micelio puede extenderse"
+
+  sleep:
+    material: RED_BED
+    display_name: "Dormir"
+    description: "Si se puede dormir en camas"
+
+  item-pickup:
+    material: DIAMOND
+    display_name: "Recoger Objetos"
+    description: "Si se pueden recoger objetos"
+
+  item-drop:
+    material: DIAMOND
+    display_name: "Soltar Objetos"
+    description: "Si se pueden soltar objetos"
+
+  exp-drops:
+    material: EXPERIENCE_BOTTLE
+    display_name: "Gotas de Experiencia"
+    description: "Si se pueden obtener gotas de experiencia"
+
+file-version: 2

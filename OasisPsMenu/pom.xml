@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>me.oasisland</groupId>
+    <artifactId>OasisPSMenu</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven.compiler.release>21</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!--
+        REPOSITORIOS
+        Acá es donde Maven va a buscar cada dependencia. Si alguno te da error
+        de "could not resolve", probablemente sea por la versión exacta del
+        artefacto (ver comentarios abajo en <dependencies>).
+    -->
+    <repositories>
+        <!-- Repositorio oficial de PaperMC (paper-api) -->
+        <repository>
+            <id>papermc</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
+        </repository>
+        <!-- Repositorio de EngineHub (WorldGuard / WorldEdit) -->
+        <repository>
+            <id>enginehub-maven</id>
+            <url>https://maven.enginehub.org/repo/</url>
+        </repository>
+<!-- Repositorio de PlaceholderAPI -->
+        <repository>
+            <id>placeholderapi</id>
+            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+        </repository>
+        <!-- Repositorio de LuckPerms -->
+        <repository>
+            <id>luckperms-repo</id>
+            <url>https://repo.lucko.me/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!--
+            PAPER API
+            Confirmado por Pablo: el servidor corre 1.21.11, así que la
+            API tiene que apuntar a esa misma versión (o TEST_BLOCK y
+            cualquier otra clase agregada en versiones nuevas del juego
+            no se van a encontrar al compilar).
+        -->
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>1.21.11-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- WorldGuard: para leer/escribir flags de las regiones.
+             NO excluimos las transitivas (worldguard-core, worldedit-core,
+             worldedit-bukkit) porque ahí viven las clases que usamos
+             (Flag, StateFlag, ProtectedRegion, BlockVector3, etc).
+             Como el scope es "provided", igual NO se empaquetan dentro
+             de nuestro .jar final — solo se usan para compilar. -->
+        <dependency>
+            <groupId>com.sk89q.worldguard</groupId>
+            <artifactId>worldguard-bukkit</artifactId>
+            <version>7.0.12</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--
+            ProtectionStones — dependencia local instalada en tu repositorio
+            Maven (~/.m2). Esto evita el warning de "systemPath" y es la
+            forma recomendada de usar un .jar que no está en ningún
+            repositorio remoto.
+
+            PASO A SEGUIR (una sola vez, antes de compilar):
+            Desde la carpeta de este pom.xml, corré:
+
+              mvn install:install-file -Dfile=libs/ProtectionStones.jar -DgroupId=dev.espi -DartifactId=protectionstones -Dversion=2.10.6 -Dpackaging=jar
+
+            Eso copia el jar a tu repositorio local de Maven una sola vez.
+            Después de eso, "mvn clean package" lo va a encontrar siempre,
+            sin warnings, igual que cualquier otra dependencia normal.
+        -->
+        <dependency>
+            <groupId>dev.espi</groupId>
+            <artifactId>protectionstones</artifactId>
+            <version>2.10.6</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- PlaceholderAPI (opcional, para mostrar info en holograms/scoreboard) -->
+        <dependency>
+            <groupId>me.clip</groupId>
+            <artifactId>placeholderapi</artifactId>
+            <version>2.11.6</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- LuckPerms API (opcional, para permisos avanzados de rango) -->
+        <dependency>
+            <groupId>net.luckperms</groupId>
+            <artifactId>api</artifactId>
+            <version>5.4</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>OasisPSMenu-${project.version}</finalName>
+        <plugins>
+            <!-- Shade plugin: por si en el futuro agregamos librerías propias a empaquetar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

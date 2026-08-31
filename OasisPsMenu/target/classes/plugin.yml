@@ -1,0 +1,42 @@
+name: OasisPSMenu
+version: '1.0.0'
+main: me.oasisland.oasispsmenu.OasisPSMenu
+api-version: '1.21'
+author: OasisLand
+description: Menus GUI de flags, homes, miembros y kick/ban/unban para ProtectionStones.
+
+# Necesitamos que ProtectionStones y WorldGuard ya estén cargados antes que nosotros
+depend: [ProtectionStones, WorldGuard]
+softdepend: [PlaceholderAPI, LuckPerms, Vault]
+
+commands:
+  oasispsmenu:
+    description: Comando administrativo de OasisPSMenu
+    aliases: [opsm]
+    usage: /oasispsmenu reload
+  psmenu:
+    description: Abre el menú de gestión de tu protección actual
+    usage: /psmenu
+
+permissions:
+  oasispsmenu.admin:
+    description: Acceso a comandos administrativos del plugin
+    default: op
+  oasispsmenu.use:
+    description: Permite usar los menus de /ps home y /ps flag
+    default: true
+  oasispsmenu.kick:
+    description: Permite expulsar jugadores de tu propia protección
+    default: true
+  oasispsmenu.ban:
+    description: Permite banear jugadores de tu propia protección
+    default: true
+  oasispsmenu.placebypass:
+    description: Permite colocar un cubo protector aunque haya otro jugador dentro del área
+    default: op
+  oasispsmenu.admin.manage:
+    description: Permite abrir el Editor de cualquier protección aunque no seas dueño ni miembro (equivalente a lo que ya puede hacer un OP)
+    default: op
+  oasispsmenu.admin.remove:
+    description: Permite remover cualquier protección aunque no seas dueño ni miembro. Separado de admin.manage a propósito, porque remover es una acción más delicada
+    default: op
